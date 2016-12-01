@@ -1,12 +1,12 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-heroku-keepalive"
   spec.version       = "0.1.0"
-  spec.authors       = ["Weiwei Li"]
-  spec.email         = ["liweiwei_ny@yahoo.com"]
-  spec.description   = "TODO: Add a description"
-  spec.summary       = "TODO: Add a summary"
-  spec.homepage      = "TODO: Add a homepage"
-  spec.license       = "TODO: Add a license"
+  spec.authors       = ["Ronghai Wei"]
+  spec.email         = ["Ronghai.Wei@msn.com"]
+  spec.description   = "Based on hubot-heroku-keepalive, to keep Heroku's free tire live"
+  spec.summary       = "Keep Heroku's free tier live"
+  spec.homepage      = "https://github.com/ronghai/lita-heroku-keepalive"
+  spec.license       = "MIT"
   spec.metadata      = { "lita_plugin_type" => "handler" }
 
   spec.files         = `git ls-files`.split($/)
