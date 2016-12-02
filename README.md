@@ -27,7 +27,7 @@ lita-heroku-keepalive is configured by four environment variables:
 * `LITA_HEROKU_KEEPALIVE_URL` - required, the complete URL to keepalive, including a trailing slash.
 * `LITA_HEROKU_WAKEUP_TIME` - optional,  the time of day (HH:MM) when lita should wake up.  Default: 6:00 (6 am)
 * `LITA_HEROKU_SLEEP_TIME` - optional, the time of day (HH:MM) when lita should go to sleep. Default: 22:00 (10 pm)
-* `LITA_HEROKU_KEEPALIVE_INTERVAL` - the interval in which to keepalive, in minutes. Default: 5
+* `LITA_HEROKU_KEEPALIVE_INTERVAL` - the interval minutes in which to keepalive, in minutes. Default: 5 (minutes)
 
 You *must* set `LITA_HEROKU_KEEPALIVE_URL` and it *must* include a trailing slash – otherwise the script won't run. 
 You can find out the value for this by running `heroku apps:info`. Copy the `Web URL` and run:
@@ -39,7 +39,7 @@ heroku config:set LITA_HEROKU_KEEPALIVE_URL=PASTE_WEB_URL_HERE
 If you want to trust a shell snippet from the Internet, here's a one-liner:
 
 ```
-heroku config:set LITA_HEROKU_KEEPALIVE_URL=$(heroku apps:info -s | grep web-url | cut -d= -f2)
+heroku config:set LITA_HEROKU_KEEPALIVE_URL=$(heroku apps:info -s | grep web_url | cut -d= -f2)
 ```
 
 `LITA_HEROKU_WAKEUP_TIME` and `LITA_HEROKU_SLEEP_TIME` define the waking hours - between these times the keepalive will ping your Heroku app.  Outside of those times, the ping will be suppressed, allowing the dyno to shut down. These times are based on the timezone of your Heroku application which defaults to UTC.  You can change this with:
