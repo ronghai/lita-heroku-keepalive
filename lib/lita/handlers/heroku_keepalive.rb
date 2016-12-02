@@ -12,7 +12,7 @@ module Lita
       KEEPALIVE_URL = ENV["LITA_HEROKU_KEEPALIVE_URL"] || ENV["HEROKU_URL"]
       
       unless KEEPALIVE_URL
-        log.warning(" LITA_HEROKU_KEEPALIVE_URL is missing ")
+        log.warning(" LITA_HEROKU_KEEPALIVE_URL is missing.\n`heroku config:set LITA_HEROKU_KEEPALIVE_URL=$(heroku apps:info -s  | grep web-url | cut -d= -f2)`")
         return;
       end
       
