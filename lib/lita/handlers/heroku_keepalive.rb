@@ -15,15 +15,13 @@ module Lita
       	unless KEEPALIVE_URL[-1] == '/'
           KEEPALIVE_URL = KEEPALIVE_URL + "/"
         end
-        
-        http.get "/heroku/keepalive" do |request, response|
-          #log.info ">>>>>>>"
-          response.body << "OK"
-        end
-        http.post "/heroku/keepalive" do |request, response|
-          response.body << "OK"
-        end
 
+        pong = lambda{|request, response| log.info "Keepalive pong..."; response.body << "OK"}
+        
+        http.get "/heroku/keepalive", pong
+        
+        http.post "/heroku/keepalive", pong
+        
         on(:loaded) do
           log.info "staring ping keep alive url #{KEEPALIVE_URL}heroku/keepalive"
           every(KEEPALIVE_INTERVAL) do

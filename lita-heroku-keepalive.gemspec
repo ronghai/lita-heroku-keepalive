@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-heroku-keepalive"
-  spec.version       = "0.2.0"
+  spec.version       = "0.2.1"
   spec.authors       = ["Ronghai Wei"]
   spec.email         = ["Ronghai.Wei@msn.com"]
   spec.description   = "Based on hubot-heroku-keepalive, to keep Heroku's free tire live"
